@@ -110,3 +110,63 @@
     <p style="color: #444; font-size: 0.8rem;">OFFICIAL SYSTEM QR</p>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://royz-web.vercel.app/&color=d4af37&bgcolor=000" alt="Royz Web QR">
 </div>
+<div style="margin-top: 50px; text-align: center; border: 1px solid #333; padding: 20px; display: inline-block;">
+    <p style="color: #d4af37; font-size: 0.9rem; letter-spacing: 2px;">OFFICIAL SYSTEM QR</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://royz-web.vercel.app/&color=d4af37&bgcolor=000" 
+         alt="Royz Web QR" 
+         style="border: 2px solid #d4af37; padding: 5px; background: #000;">
+    <p style="color: #444; font-size: 0.7rem; margin-top: 10px;">CREDIT: ROYZ</p>
+</div>
+<div id="chat-interface" style="display:none; margin-top: 20px;">
+    <span style="color: #0f0;">> INPUT COMMAND:</span>
+    <input type="text" id="user-input" style="background:transparent; border:none; color:#0f0; outline:none; font-family:'Courier New'; width:70%;">
+</div>
+
+<script>
+    const logs = [
+        "Initializing Aethelgard Protocol...",
+        "Syncing 1.5M Agent nodes...",
+        "Royz authentication confirmed.",
+        "Awaiting input from Administrator..."
+    ];
+    const container = document.getElementById('log-container');
+    const chatInterface = document.getElementById('chat-interface');
+    const input = document.getElementById('user-input');
+    let i = 0;
+
+    function addLog() {
+        if (i < logs.length) {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerText = `> ${logs[i]}`;
+            container.appendChild(entry);
+            i++;
+            setTimeout(addLog, 1200);
+        } else {
+            chatInterface.style.display = 'block';
+            input.focus();
+        }
+    }
+
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const cmd = input.value.toLowerCase();
+            const response = document.createElement('div');
+            response.style.color = '#d4af37';
+            
+            if(cmd.includes('status')) {
+                response.innerText = "> AGENT STATUS: ALL 1.5M NODES OPTIMIZED.";
+            } else if(cmd.includes('hello')) {
+                response.innerText = "> ACCESS RECOGNIZED. HOW SHALL THE AGENTS SERVE YOU?";
+            } else {
+                response.innerText = "> COMMAND PROCESSED. PROTOCOL STACK UPDATED.";
+            }
+
+            container.appendChild(response);
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+        }
+    });
+
+    addLog();
+</script>
