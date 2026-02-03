@@ -50,18 +50,8 @@
             btn.style.opacity = "1";
         }
     };
-</script>
 <script>
-    const btn = document.querySelector('button');
-    
-    btn.onclick = () => {
-        // This is where Royz collects the capital
-        // Replace 'YOUR_STRIPE_LINK' with your actual Stripe Payment Link later
-        const stripeLink = "https://buy.stripe.com/test_placeholder"; 
-        
-        btn.innerText = "REDIRECTING TO SECURE GATEWAY...";
-        btn.style.opacity = "0.5";
-        
-        window.location.href = stripeLink;
-    };
+  document.querySelector('button').addEventListener('click', () => {
+    window.location.href = "https://buy.stripe.com/test_6oUfZi8CL5sJ2mF5xo8N200";
+  });
 </script>
